@@ -1,0 +1,176 @@
+{
+    "title": "Amazon Pinpoint SMS and Voice Service",
+    "description": "Pinpoint SMS and Voice Messaging public facing APIs",
+    "docsUrl": "https://docs.aws.amazon.com/pinpoint/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/sms-voice/2018-09-05/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://sms-voice.pinpoint.amazonaws.com/",
+                    "http://sms-voice.pinpoint.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ListConfigurationSets": {
+            "main": "./lib/actions/ListConfigurationSets.js",
+            "title": "List all of the configuration sets associated with your Amazon Pinpoint account in the current region.",
+            "description": "List all of the configuration sets associated with your Amazon Pinpoint account in the current region.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListConfigurationSets.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateConfigurationSet": {
+            "main": "./lib/actions/CreateConfigurationSet.js",
+            "title": "Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.",
+            "description": "Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateConfigurationSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteConfigurationSet": {
+            "main": "./lib/actions/DeleteConfigurationSet.js",
+            "title": "Deletes an existing configuration set.",
+            "description": "Deletes an existing configuration set.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteConfigurationSet.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetConfigurationSetEventDestinations": {
+            "main": "./lib/actions/GetConfigurationSetEventDestinations.js",
+            "title": "Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.",
+            "description": "Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetConfigurationSetEventDestinations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateConfigurationSetEventDestination": {
+            "main": "./lib/actions/CreateConfigurationSetEventDestination.js",
+            "title": "Create a new event destination in a configuration set.",
+            "description": "Create a new event destination in a configuration set.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateConfigurationSetEventDestination.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteConfigurationSetEventDestination": {
+            "main": "./lib/actions/DeleteConfigurationSetEventDestination.js",
+            "title": "Deletes an event destination in a configuration set.",
+            "description": "Deletes an event destination in a configuration set.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteConfigurationSetEventDestination.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateConfigurationSetEventDestination": {
+            "main": "./lib/actions/UpdateConfigurationSetEventDestination.js",
+            "title": "Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.",
+            "description": "Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateConfigurationSetEventDestination.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SendVoiceMessage": {
+            "main": "./lib/actions/SendVoiceMessage.js",
+            "title": "Create a new voice message and send it to a recipient's phone number.",
+            "description": "Create a new voice message and send it to a recipient's phone number.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SendVoiceMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

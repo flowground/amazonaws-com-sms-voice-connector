@@ -1,0 +1,2191 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": "https://sms-voice.pinpoint.amazonaws.com/"
+        },
+        {
+            "url": "http://sms-voice.pinpoint.amazonaws.com/"
+        }
+    ],
+    "info": {
+        "contact": {
+            "email": "mike.ralphson@gmail.com",
+            "name": "Mike Ralphson",
+            "url": "https://github.com/mermade/aws2openapi",
+            "x-twitter": "PermittedSoc"
+        },
+        "description": "Pinpoint SMS and Voice Messaging public facing APIs",
+        "license": {
+            "name": "Apache 2.0 License",
+            "url": "http://www.apache.org/licenses/"
+        },
+        "termsOfService": "https://aws.amazon.com/service-terms/",
+        "title": "Amazon Pinpoint SMS and Voice Service",
+        "version": "2018-09-05",
+        "x-apiClientRegistration": {
+            "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+        },
+        "x-apisguru-categories": [
+            "cloud"
+        ],
+        "x-logo": {
+            "backgroundColor": "#FFFFFF",
+            "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+        },
+        "x-origin": [
+            {
+                "contentType": "application/json",
+                "converter": {
+                    "url": "https://github.com/mermade/aws2openapi",
+                    "version": "1.0.0"
+                },
+                "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/sms-voice-2018-09-05.normal.json",
+                "x-apisguru-direct": true
+            }
+        ],
+        "x-preferred": true,
+        "x-providerName": "amazonaws.com",
+        "x-release": "v4",
+        "x-serviceName": "sms-voice"
+    },
+    "externalDocs": {
+        "description": "Amazon Web Services documentation",
+        "url": "https://docs.aws.amazon.com/pinpoint/"
+    },
+    "security": [
+        {
+            "hmac": []
+        }
+    ],
+    "paths": {
+        "/v1/sms-voice/configuration-sets": {
+            "get": {
+                "description": "List all of the configuration sets associated with your Amazon Pinpoint account in the current region.",
+                "operationId": "ListConfigurationSets",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "An object that contains information about the configuration sets for your account in the current region.",
+                                    "properties": {
+                                        "ConfigurationSets": {
+                                            "description": "An object that contains a list of configuration sets for your account in the current region.",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "NextToken": {
+                                            "description": "A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "TooManyRequestsException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "BadRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "InternalServiceErrorException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {},
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            },
+            "parameters": [
+                {
+                    "in": "query",
+                    "name": "Action",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "query",
+                    "name": "Version",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Content-Sha256",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Date",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Algorithm",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Credential",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Security-Token",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Signature",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-SignedHeaders",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "post": {
+                "description": "Create a new configuration set. After you create the configuration set, you can add one or more event destinations to it.",
+                "operationId": "CreateConfigurationSet",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "An empty object that indicates that the configuration set was successfully created.",
+                                    "properties": {},
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "TooManyRequestsException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "BadRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "LimitExceededException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "483": {
+                        "description": "InternalServiceErrorException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "484": {
+                        "description": "AlreadyExistsException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "description": "A request to create a new configuration set.",
+                                "properties": {
+                                    "ConfigurationSetName": {
+                                        "description": "The name that you want to give the configuration set.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            }
+        },
+        "/v1/sms-voice/configuration-sets/{ConfigurationSetName}": {
+            "delete": {
+                "description": "Deletes an existing configuration set.",
+                "operationId": "DeleteConfigurationSet",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ConfigurationSetName",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "An empty object that indicates that the configuration set was deleted successfully.",
+                                    "properties": {},
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "NotFoundException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "TooManyRequestsException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "BadRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "483": {
+                        "description": "InternalServiceErrorException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {},
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            },
+            "parameters": [
+                {
+                    "in": "query",
+                    "name": "Action",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "query",
+                    "name": "Version",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Content-Sha256",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Date",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Algorithm",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Credential",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Security-Token",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Signature",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-SignedHeaders",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ]
+        },
+        "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations": {
+            "get": {
+                "description": "Obtain information about an event destination, including the types of events it reports, the Amazon Resource Name (ARN) of the destination, and the name of the event destination.",
+                "operationId": "GetConfigurationSetEventDestinations",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ConfigurationSetName",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "An object that contains information about an event destination.",
+                                    "properties": {
+                                        "EventDestinations": {
+                                            "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                                            "items": {
+                                                "description": "An object that defines an event destination.",
+                                                "properties": {
+                                                    "CloudWatchLogsDestination": {
+                                                        "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                                                        "properties": {
+                                                            "IamRoleArn": {
+                                                                "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                                                                "type": "string"
+                                                            },
+                                                            "LogGroupArn": {
+                                                                "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "Enabled": {
+                                                        "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.",
+                                                        "type": "boolean"
+                                                    },
+                                                    "KinesisFirehoseDestination": {
+                                                        "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                                                        "properties": {
+                                                            "DeliveryStreamArn": {
+                                                                "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                                                                "type": "string"
+                                                            },
+                                                            "IamRoleArn": {
+                                                                "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "MatchingEventTypes": {
+                                                        "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                                                        "items": {
+                                                            "description": "The types of events that are sent to the event destination.",
+                                                            "enum": [
+                                                                "INITIATED_CALL",
+                                                                "RINGING",
+                                                                "ANSWERED",
+                                                                "COMPLETED_CALL",
+                                                                "BUSY",
+                                                                "FAILED",
+                                                                "NO_ANSWER"
+                                                            ],
+                                                            "type": "string"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "Name": {
+                                                        "description": "A name that identifies the event destination configuration.",
+                                                        "type": "string"
+                                                    },
+                                                    "SnsDestination": {
+                                                        "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                                                        "properties": {
+                                                            "TopicArn": {
+                                                                "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "NotFoundException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "TooManyRequestsException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "BadRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "483": {
+                        "description": "InternalServiceErrorException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {},
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            },
+            "parameters": [
+                {
+                    "in": "query",
+                    "name": "Action",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "query",
+                    "name": "Version",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Content-Sha256",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Date",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Algorithm",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Credential",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Security-Token",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Signature",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-SignedHeaders",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "post": {
+                "description": "Create a new event destination in a configuration set.",
+                "operationId": "CreateConfigurationSetEventDestination",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ConfigurationSetName",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "An empty object that indicates that the event destination was created successfully.",
+                                    "properties": {},
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "BadRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "LimitExceededException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "InternalServiceErrorException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "483": {
+                        "description": "NotFoundException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "484": {
+                        "description": "TooManyRequestsException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "485": {
+                        "description": "AlreadyExistsException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "description": "Create a new event destination in a configuration set.",
+                                "properties": {
+                                    "EventDestination": {
+                                        "description": "An object that defines a single event destination.",
+                                        "properties": {
+                                            "CloudWatchLogsDestination": {
+                                                "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                                                "properties": {
+                                                    "IamRoleArn": {
+                                                        "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                                                        "type": "string"
+                                                    },
+                                                    "LogGroupArn": {
+                                                        "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "Enabled": {
+                                                "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.",
+                                                "type": "boolean"
+                                            },
+                                            "KinesisFirehoseDestination": {
+                                                "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                                                "properties": {
+                                                    "DeliveryStreamArn": {
+                                                        "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                                                        "type": "string"
+                                                    },
+                                                    "IamRoleArn": {
+                                                        "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "MatchingEventTypes": {
+                                                "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                                                "items": {
+                                                    "description": "The types of events that are sent to the event destination.",
+                                                    "enum": [
+                                                        "INITIATED_CALL",
+                                                        "RINGING",
+                                                        "ANSWERED",
+                                                        "COMPLETED_CALL",
+                                                        "BUSY",
+                                                        "FAILED",
+                                                        "NO_ANSWER"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "SnsDestination": {
+                                                "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                                                "properties": {
+                                                    "TopicArn": {
+                                                        "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "EventDestinationName": {
+                                        "description": "A name that identifies the event destination.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            }
+        },
+        "/v1/sms-voice/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}": {
+            "delete": {
+                "description": "Deletes an event destination in a configuration set.",
+                "operationId": "DeleteConfigurationSetEventDestination",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ConfigurationSetName",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "EventDestinationName",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "An empty object that indicates that the event destination was deleted successfully.",
+                                    "properties": {},
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "NotFoundException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "TooManyRequestsException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "BadRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "483": {
+                        "description": "InternalServiceErrorException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {},
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            },
+            "parameters": [
+                {
+                    "in": "query",
+                    "name": "Action",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "query",
+                    "name": "Version",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Content-Sha256",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Date",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Algorithm",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Credential",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Security-Token",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Signature",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-SignedHeaders",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "put": {
+                "description": "Update an event destination in a configuration set. An event destination is a location that you publish information about your voice calls to. For example, you can log an event to an Amazon CloudWatch destination when a call fails.",
+                "operationId": "UpdateConfigurationSetEventDestination",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "ConfigurationSetName",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "in": "path",
+                        "name": "EventDestinationName",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "An empty object that indicates that the event destination was updated successfully.",
+                                    "properties": {},
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "NotFoundException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "TooManyRequestsException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "BadRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "483": {
+                        "description": "InternalServiceErrorException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "description": "UpdateConfigurationSetEventDestinationRequest",
+                                "properties": {
+                                    "EventDestination": {
+                                        "description": "An object that defines a single event destination.",
+                                        "properties": {
+                                            "CloudWatchLogsDestination": {
+                                                "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                                                "properties": {
+                                                    "IamRoleArn": {
+                                                        "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                                                        "type": "string"
+                                                    },
+                                                    "LogGroupArn": {
+                                                        "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "Enabled": {
+                                                "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.",
+                                                "type": "boolean"
+                                            },
+                                            "KinesisFirehoseDestination": {
+                                                "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                                                "properties": {
+                                                    "DeliveryStreamArn": {
+                                                        "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                                                        "type": "string"
+                                                    },
+                                                    "IamRoleArn": {
+                                                        "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "MatchingEventTypes": {
+                                                "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                                                "items": {
+                                                    "description": "The types of events that are sent to the event destination.",
+                                                    "enum": [
+                                                        "INITIATED_CALL",
+                                                        "RINGING",
+                                                        "ANSWERED",
+                                                        "COMPLETED_CALL",
+                                                        "BUSY",
+                                                        "FAILED",
+                                                        "NO_ANSWER"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            },
+                                            "SnsDestination": {
+                                                "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                                                "properties": {
+                                                    "TopicArn": {
+                                                        "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            }
+        },
+        "/v1/sms-voice/voice/message": {
+            "parameters": [
+                {
+                    "in": "query",
+                    "name": "Action",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "query",
+                    "name": "Version",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Content-Sha256",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Date",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Algorithm",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Credential",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Security-Token",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Signature",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-SignedHeaders",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "post": {
+                "description": "Create a new voice message and send it to a recipient's phone number.",
+                "operationId": "SendVoiceMessage",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "An object that that contains the Message ID of a Voice message that was sent successfully.",
+                                    "properties": {
+                                        "MessageId": {
+                                            "description": "A unique identifier for the voice message.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "TooManyRequestsException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "BadRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "InternalServiceErrorException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "description": "SendVoiceMessageRequest",
+                                "properties": {
+                                    "CallerId": {
+                                        "description": "The phone number that appears on recipients' devices when they receive the message.",
+                                        "type": "string"
+                                    },
+                                    "ConfigurationSetName": {
+                                        "description": "The name of the configuration set that you want to use to send the message.",
+                                        "type": "string"
+                                    },
+                                    "Content": {
+                                        "description": "An object that contains a voice message and information about the recipient that you want to send it to.",
+                                        "properties": {
+                                            "CallInstructionsMessage": {
+                                                "description": "An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.",
+                                                "properties": {
+                                                    "Text": {
+                                                        "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "PlainTextMessage": {
+                                                "description": "An object that defines a message that contains unformatted text.",
+                                                "properties": {
+                                                    "LanguageCode": {
+                                                        "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                                        "type": "string"
+                                                    },
+                                                    "Text": {
+                                                        "description": "The plain (not SSML-formatted) text to deliver to the recipient.",
+                                                        "type": "string"
+                                                    },
+                                                    "VoiceId": {
+                                                        "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "SSMLMessage": {
+                                                "description": "An object that defines a message that contains SSML-formatted text.",
+                                                "properties": {
+                                                    "LanguageCode": {
+                                                        "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                                        "type": "string"
+                                                    },
+                                                    "Text": {
+                                                        "description": "The SSML-formatted text to deliver to the recipient.",
+                                                        "type": "string"
+                                                    },
+                                                    "VoiceId": {
+                                                        "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "DestinationPhoneNumber": {
+                                        "description": "The phone number that you want to send the voice message to.",
+                                        "type": "string"
+                                    },
+                                    "OriginationPhoneNumber": {
+                                        "description": "The phone number that Amazon Pinpoint should use to send the voice message. This isn't necessarily the phone number that appears on recipients' devices when they receive the message, because you can specify a CallerId parameter in the request.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AlreadyExistsException": {},
+            "BadRequestException": {},
+            "Boolean": {
+                "type": "boolean"
+            },
+            "CallInstructionsMessageType": {
+                "description": "An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.",
+                "properties": {
+                    "Text": {
+                        "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CloudWatchLogsDestination": {
+                "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                "properties": {
+                    "IamRoleArn": {
+                        "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                        "type": "string"
+                    },
+                    "LogGroupArn": {
+                        "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "ConfigurationSets": {
+                "description": "An array that contains all of the configuration sets in your Amazon Pinpoint account in the current AWS Region.",
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "CreateConfigurationSetEventDestinationRequest": {
+                "description": "Create a new event destination in a configuration set.",
+                "properties": {
+                    "EventDestination": {
+                        "description": "An object that defines a single event destination.",
+                        "properties": {
+                            "CloudWatchLogsDestination": {
+                                "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                                "properties": {
+                                    "IamRoleArn": {
+                                        "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                                        "type": "string"
+                                    },
+                                    "LogGroupArn": {
+                                        "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "Enabled": {
+                                "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.",
+                                "type": "boolean"
+                            },
+                            "KinesisFirehoseDestination": {
+                                "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                                "properties": {
+                                    "DeliveryStreamArn": {
+                                        "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                                        "type": "string"
+                                    },
+                                    "IamRoleArn": {
+                                        "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "MatchingEventTypes": {
+                                "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                                "items": {
+                                    "description": "The types of events that are sent to the event destination.",
+                                    "enum": [
+                                        "INITIATED_CALL",
+                                        "RINGING",
+                                        "ANSWERED",
+                                        "COMPLETED_CALL",
+                                        "BUSY",
+                                        "FAILED",
+                                        "NO_ANSWER"
+                                    ],
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "SnsDestination": {
+                                "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                                "properties": {
+                                    "TopicArn": {
+                                        "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "EventDestinationName": {
+                        "description": "A name that identifies the event destination.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateConfigurationSetEventDestinationResponse": {
+                "description": "An empty object that indicates that the event destination was created successfully.",
+                "properties": {},
+                "type": "object"
+            },
+            "CreateConfigurationSetRequest": {
+                "description": "A request to create a new configuration set.",
+                "properties": {
+                    "ConfigurationSetName": {
+                        "description": "The name that you want to give the configuration set.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateConfigurationSetResponse": {
+                "description": "An empty object that indicates that the configuration set was successfully created.",
+                "properties": {},
+                "type": "object"
+            },
+            "DeleteConfigurationSetEventDestinationRequest": {
+                "properties": {},
+                "type": "object"
+            },
+            "DeleteConfigurationSetEventDestinationResponse": {
+                "description": "An empty object that indicates that the event destination was deleted successfully.",
+                "properties": {},
+                "type": "object"
+            },
+            "DeleteConfigurationSetRequest": {
+                "properties": {},
+                "type": "object"
+            },
+            "DeleteConfigurationSetResponse": {
+                "description": "An empty object that indicates that the configuration set was deleted successfully.",
+                "properties": {},
+                "type": "object"
+            },
+            "EventDestination": {
+                "description": "An object that defines an event destination.",
+                "properties": {
+                    "CloudWatchLogsDestination": {
+                        "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                        "properties": {
+                            "IamRoleArn": {
+                                "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                                "type": "string"
+                            },
+                            "LogGroupArn": {
+                                "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "Enabled": {
+                        "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.",
+                        "type": "boolean"
+                    },
+                    "KinesisFirehoseDestination": {
+                        "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                        "properties": {
+                            "DeliveryStreamArn": {
+                                "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                                "type": "string"
+                            },
+                            "IamRoleArn": {
+                                "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "MatchingEventTypes": {
+                        "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                        "items": {
+                            "description": "The types of events that are sent to the event destination.",
+                            "enum": [
+                                "INITIATED_CALL",
+                                "RINGING",
+                                "ANSWERED",
+                                "COMPLETED_CALL",
+                                "BUSY",
+                                "FAILED",
+                                "NO_ANSWER"
+                            ],
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "Name": {
+                        "description": "A name that identifies the event destination configuration.",
+                        "type": "string"
+                    },
+                    "SnsDestination": {
+                        "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                        "properties": {
+                            "TopicArn": {
+                                "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "EventDestinationDefinition": {
+                "description": "An object that defines a single event destination.",
+                "properties": {
+                    "CloudWatchLogsDestination": {
+                        "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                        "properties": {
+                            "IamRoleArn": {
+                                "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                                "type": "string"
+                            },
+                            "LogGroupArn": {
+                                "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "Enabled": {
+                        "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.",
+                        "type": "boolean"
+                    },
+                    "KinesisFirehoseDestination": {
+                        "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                        "properties": {
+                            "DeliveryStreamArn": {
+                                "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                                "type": "string"
+                            },
+                            "IamRoleArn": {
+                                "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "MatchingEventTypes": {
+                        "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                        "items": {
+                            "description": "The types of events that are sent to the event destination.",
+                            "enum": [
+                                "INITIATED_CALL",
+                                "RINGING",
+                                "ANSWERED",
+                                "COMPLETED_CALL",
+                                "BUSY",
+                                "FAILED",
+                                "NO_ANSWER"
+                            ],
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "SnsDestination": {
+                        "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                        "properties": {
+                            "TopicArn": {
+                                "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "EventDestinations": {
+                "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                "items": {
+                    "description": "An object that defines an event destination.",
+                    "properties": {
+                        "CloudWatchLogsDestination": {
+                            "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                            "properties": {
+                                "IamRoleArn": {
+                                    "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                                    "type": "string"
+                                },
+                                "LogGroupArn": {
+                                    "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Enabled": {
+                            "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.",
+                            "type": "boolean"
+                        },
+                        "KinesisFirehoseDestination": {
+                            "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                            "properties": {
+                                "DeliveryStreamArn": {
+                                    "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                                    "type": "string"
+                                },
+                                "IamRoleArn": {
+                                    "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "MatchingEventTypes": {
+                            "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                            "items": {
+                                "description": "The types of events that are sent to the event destination.",
+                                "enum": [
+                                    "INITIATED_CALL",
+                                    "RINGING",
+                                    "ANSWERED",
+                                    "COMPLETED_CALL",
+                                    "BUSY",
+                                    "FAILED",
+                                    "NO_ANSWER"
+                                ],
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "Name": {
+                            "description": "A name that identifies the event destination configuration.",
+                            "type": "string"
+                        },
+                        "SnsDestination": {
+                            "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                            "properties": {
+                                "TopicArn": {
+                                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "type": "array"
+            },
+            "EventType": {
+                "description": "The types of events that are sent to the event destination.",
+                "enum": [
+                    "INITIATED_CALL",
+                    "RINGING",
+                    "ANSWERED",
+                    "COMPLETED_CALL",
+                    "BUSY",
+                    "FAILED",
+                    "NO_ANSWER"
+                ],
+                "type": "string"
+            },
+            "EventTypes": {
+                "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                "items": {
+                    "description": "The types of events that are sent to the event destination.",
+                    "enum": [
+                        "INITIATED_CALL",
+                        "RINGING",
+                        "ANSWERED",
+                        "COMPLETED_CALL",
+                        "BUSY",
+                        "FAILED",
+                        "NO_ANSWER"
+                    ],
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "GetConfigurationSetEventDestinationsRequest": {
+                "properties": {},
+                "type": "object"
+            },
+            "GetConfigurationSetEventDestinationsResponse": {
+                "description": "An object that contains information about an event destination.",
+                "properties": {
+                    "EventDestinations": {
+                        "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                        "items": {
+                            "description": "An object that defines an event destination.",
+                            "properties": {
+                                "CloudWatchLogsDestination": {
+                                    "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                                    "properties": {
+                                        "IamRoleArn": {
+                                            "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                                            "type": "string"
+                                        },
+                                        "LogGroupArn": {
+                                            "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "Enabled": {
+                                    "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.",
+                                    "type": "boolean"
+                                },
+                                "KinesisFirehoseDestination": {
+                                    "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                                    "properties": {
+                                        "DeliveryStreamArn": {
+                                            "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                                            "type": "string"
+                                        },
+                                        "IamRoleArn": {
+                                            "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "MatchingEventTypes": {
+                                    "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                                    "items": {
+                                        "description": "The types of events that are sent to the event destination.",
+                                        "enum": [
+                                            "INITIATED_CALL",
+                                            "RINGING",
+                                            "ANSWERED",
+                                            "COMPLETED_CALL",
+                                            "BUSY",
+                                            "FAILED",
+                                            "NO_ANSWER"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": "array"
+                                },
+                                "Name": {
+                                    "description": "A name that identifies the event destination configuration.",
+                                    "type": "string"
+                                },
+                                "SnsDestination": {
+                                    "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                                    "properties": {
+                                        "TopicArn": {
+                                            "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "InternalServiceErrorException": {},
+            "KinesisFirehoseDestination": {
+                "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                "properties": {
+                    "DeliveryStreamArn": {
+                        "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                        "type": "string"
+                    },
+                    "IamRoleArn": {
+                        "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "LimitExceededException": {},
+            "ListConfigurationSetsRequest": {
+                "properties": {},
+                "type": "object"
+            },
+            "ListConfigurationSetsResponse": {
+                "description": "An object that contains information about the configuration sets for your account in the current region.",
+                "properties": {
+                    "ConfigurationSets": {
+                        "description": "An object that contains a list of configuration sets for your account in the current region.",
+                        "items": {
+                            "type": "string"
+                        },
+                        "type": "array"
+                    },
+                    "NextToken": {
+                        "description": "A token returned from a previous call to ListConfigurationSets to indicate the position in the list of configuration sets.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "NextTokenString": {
+                "type": "string"
+            },
+            "NonEmptyString": {
+                "type": "string"
+            },
+            "NotFoundException": {},
+            "PlainTextMessageType": {
+                "description": "An object that defines a message that contains unformatted text.",
+                "properties": {
+                    "LanguageCode": {
+                        "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                        "type": "string"
+                    },
+                    "Text": {
+                        "description": "The plain (not SSML-formatted) text to deliver to the recipient.",
+                        "type": "string"
+                    },
+                    "VoiceId": {
+                        "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SSMLMessageType": {
+                "description": "An object that defines a message that contains SSML-formatted text.",
+                "properties": {
+                    "LanguageCode": {
+                        "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                        "type": "string"
+                    },
+                    "Text": {
+                        "description": "The SSML-formatted text to deliver to the recipient.",
+                        "type": "string"
+                    },
+                    "VoiceId": {
+                        "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SendVoiceMessageRequest": {
+                "description": "SendVoiceMessageRequest",
+                "properties": {
+                    "CallerId": {
+                        "description": "The phone number that appears on recipients' devices when they receive the message.",
+                        "type": "string"
+                    },
+                    "ConfigurationSetName": {
+                        "description": "The name of the configuration set that you want to use to send the message.",
+                        "type": "string"
+                    },
+                    "Content": {
+                        "description": "An object that contains a voice message and information about the recipient that you want to send it to.",
+                        "properties": {
+                            "CallInstructionsMessage": {
+                                "description": "An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.",
+                                "properties": {
+                                    "Text": {
+                                        "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "PlainTextMessage": {
+                                "description": "An object that defines a message that contains unformatted text.",
+                                "properties": {
+                                    "LanguageCode": {
+                                        "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                        "type": "string"
+                                    },
+                                    "Text": {
+                                        "description": "The plain (not SSML-formatted) text to deliver to the recipient.",
+                                        "type": "string"
+                                    },
+                                    "VoiceId": {
+                                        "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "SSMLMessage": {
+                                "description": "An object that defines a message that contains SSML-formatted text.",
+                                "properties": {
+                                    "LanguageCode": {
+                                        "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                        "type": "string"
+                                    },
+                                    "Text": {
+                                        "description": "The SSML-formatted text to deliver to the recipient.",
+                                        "type": "string"
+                                    },
+                                    "VoiceId": {
+                                        "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "DestinationPhoneNumber": {
+                        "description": "The phone number that you want to send the voice message to.",
+                        "type": "string"
+                    },
+                    "OriginationPhoneNumber": {
+                        "description": "The phone number that Amazon Pinpoint should use to send the voice message. This isn't necessarily the phone number that appears on recipients' devices when they receive the message, because you can specify a CallerId parameter in the request.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SendVoiceMessageResponse": {
+                "description": "An object that that contains the Message ID of a Voice message that was sent successfully.",
+                "properties": {
+                    "MessageId": {
+                        "description": "A unique identifier for the voice message.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "SnsDestination": {
+                "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                "properties": {
+                    "TopicArn": {
+                        "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "String": {
+                "type": "string"
+            },
+            "TooManyRequestsException": {},
+            "UpdateConfigurationSetEventDestinationRequest": {
+                "description": "UpdateConfigurationSetEventDestinationRequest",
+                "properties": {
+                    "EventDestination": {
+                        "description": "An object that defines a single event destination.",
+                        "properties": {
+                            "CloudWatchLogsDestination": {
+                                "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                                "properties": {
+                                    "IamRoleArn": {
+                                        "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                                        "type": "string"
+                                    },
+                                    "LogGroupArn": {
+                                        "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "Enabled": {
+                                "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.",
+                                "type": "boolean"
+                            },
+                            "KinesisFirehoseDestination": {
+                                "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                                "properties": {
+                                    "DeliveryStreamArn": {
+                                        "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                                        "type": "string"
+                                    },
+                                    "IamRoleArn": {
+                                        "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "MatchingEventTypes": {
+                                "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                                "items": {
+                                    "description": "The types of events that are sent to the event destination.",
+                                    "enum": [
+                                        "INITIATED_CALL",
+                                        "RINGING",
+                                        "ANSWERED",
+                                        "COMPLETED_CALL",
+                                        "BUSY",
+                                        "FAILED",
+                                        "NO_ANSWER"
+                                    ],
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            },
+                            "SnsDestination": {
+                                "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                                "properties": {
+                                    "TopicArn": {
+                                        "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateConfigurationSetEventDestinationResponse": {
+                "description": "An empty object that indicates that the event destination was updated successfully.",
+                "properties": {},
+                "type": "object"
+            },
+            "VoiceMessageContent": {
+                "description": "An object that contains a voice message and information about the recipient that you want to send it to.",
+                "properties": {
+                    "CallInstructionsMessage": {
+                        "description": "An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.",
+                        "properties": {
+                            "Text": {
+                                "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "PlainTextMessage": {
+                        "description": "An object that defines a message that contains unformatted text.",
+                        "properties": {
+                            "LanguageCode": {
+                                "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                "type": "string"
+                            },
+                            "Text": {
+                                "description": "The plain (not SSML-formatted) text to deliver to the recipient.",
+                                "type": "string"
+                            },
+                            "VoiceId": {
+                                "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "SSMLMessage": {
+                        "description": "An object that defines a message that contains SSML-formatted text.",
+                        "properties": {
+                            "LanguageCode": {
+                                "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                "type": "string"
+                            },
+                            "Text": {
+                                "description": "The SSML-formatted text to deliver to the recipient.",
+                                "type": "string"
+                            },
+                            "VoiceId": {
+                                "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "WordCharactersWithDelimiters": {
+                "type": "string"
+            },
+            "__string": {
+                "type": "string"
+            }
+        },
+        "parameters": {
+            "Action": {
+                "in": "query",
+                "name": "Action",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Version": {
+                "in": "query",
+                "name": "Version",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Algorithm": {
+                "in": "header",
+                "name": "X-Amz-Algorithm",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Content-Sha256": {
+                "in": "header",
+                "name": "X-Amz-Content-Sha256",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Credential": {
+                "in": "header",
+                "name": "X-Amz-Credential",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Date": {
+                "in": "header",
+                "name": "X-Amz-Date",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Security-Token": {
+                "in": "header",
+                "name": "X-Amz-Security-Token",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Signature": {
+                "in": "header",
+                "name": "X-Amz-Signature",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-SignedHeaders": {
+                "in": "header",
+                "name": "X-Amz-SignedHeaders",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "requestBodies": {
+            "ListConfigurationSetsBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {},
+                            "type": "object"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "hmac": {
+                "description": "Amazon Signature authorization v4",
+                "in": "header",
+                "name": "Authorization",
+                "type": "apiKey",
+                "x-amazon-apigateway-authtype": "awsSigv4"
+            }
+        }
+    }
+}

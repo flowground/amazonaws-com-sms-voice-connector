@@ -1,0 +1,115 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "SendVoiceMessageRequest",
+            "properties": {
+                "CallerId": {
+                    "description": "The phone number that appears on recipients' devices when they receive the message.",
+                    "type": "string"
+                },
+                "ConfigurationSetName": {
+                    "description": "The name of the configuration set that you want to use to send the message.",
+                    "type": "string"
+                },
+                "Content": {
+                    "description": "An object that contains a voice message and information about the recipient that you want to send it to.",
+                    "properties": {
+                        "CallInstructionsMessage": {
+                            "description": "An object that defines a message that contains text formatted using Amazon Pinpoint Voice Instructions markup.",
+                            "properties": {
+                                "Text": {
+                                    "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "PlainTextMessage": {
+                            "description": "An object that defines a message that contains unformatted text.",
+                            "properties": {
+                                "LanguageCode": {
+                                    "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                    "type": "string"
+                                },
+                                "Text": {
+                                    "description": "The plain (not SSML-formatted) text to deliver to the recipient.",
+                                    "type": "string"
+                                },
+                                "VoiceId": {
+                                    "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "SSMLMessage": {
+                            "description": "An object that defines a message that contains SSML-formatted text.",
+                            "properties": {
+                                "LanguageCode": {
+                                    "description": "The language to use when delivering the message. For a complete list of supported languages, see the Amazon Polly Developer Guide.",
+                                    "type": "string"
+                                },
+                                "Text": {
+                                    "description": "The SSML-formatted text to deliver to the recipient.",
+                                    "type": "string"
+                                },
+                                "VoiceId": {
+                                    "description": "The name of the voice that you want to use to deliver the message. For a complete list of supported voices, see the Amazon Polly Developer Guide.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "DestinationPhoneNumber": {
+                    "description": "The phone number that you want to send the voice message to.",
+                    "type": "string"
+                },
+                "OriginationPhoneNumber": {
+                    "description": "The phone number that Amazon Pinpoint should use to send the voice message. This isn't necessarily the phone number that appears on recipients' devices when they receive the message, because you can specify a CallerId parameter in the request.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

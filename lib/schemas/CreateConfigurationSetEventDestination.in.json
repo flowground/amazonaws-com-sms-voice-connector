@@ -1,0 +1,116 @@
+{
+    "type": "object",
+    "properties": {
+        "ConfigurationSetName": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Create a new event destination in a configuration set.",
+            "properties": {
+                "EventDestination": {
+                    "description": "An object that defines a single event destination.",
+                    "properties": {
+                        "CloudWatchLogsDestination": {
+                            "description": "An object that contains information about an event destination that sends data to Amazon CloudWatch Logs.",
+                            "properties": {
+                                "IamRoleArn": {
+                                    "description": "The Amazon Resource Name (ARN) of an Amazon Identity and Access Management (IAM) role that is able to write event data to an Amazon CloudWatch destination.",
+                                    "type": "string"
+                                },
+                                "LogGroupArn": {
+                                    "description": "The name of the Amazon CloudWatch Log Group that you want to record events in.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Enabled": {
+                            "description": "Indicates whether or not the event destination is enabled. If the event destination is enabled, then Amazon Pinpoint sends response data to the specified event destination.",
+                            "type": "boolean"
+                        },
+                        "KinesisFirehoseDestination": {
+                            "description": "An object that contains information about an event destination that sends data to Amazon Kinesis Data Firehose.",
+                            "properties": {
+                                "DeliveryStreamArn": {
+                                    "description": "The Amazon Resource Name (ARN) of an IAM role that can write data to an Amazon Kinesis Data Firehose stream.",
+                                    "type": "string"
+                                },
+                                "IamRoleArn": {
+                                    "description": "The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose destination that you want to use in the event destination.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "MatchingEventTypes": {
+                            "description": "An array of EventDestination objects. Each EventDestination object includes ARNs and other information that define an event destination.",
+                            "items": {
+                                "description": "The types of events that are sent to the event destination.",
+                                "enum": [
+                                    "INITIATED_CALL",
+                                    "RINGING",
+                                    "ANSWERED",
+                                    "COMPLETED_CALL",
+                                    "BUSY",
+                                    "FAILED",
+                                    "NO_ANSWER"
+                                ],
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "SnsDestination": {
+                            "description": "An object that contains information about an event destination that sends data to Amazon SNS.",
+                            "properties": {
+                                "TopicArn": {
+                                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "EventDestinationName": {
+                    "description": "A name that identifies the event destination.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
